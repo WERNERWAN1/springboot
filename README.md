@@ -1,0 +1,1 @@
+####springBoot构建的项目 关键字: springBoot aop mybatis redis swagger  maven  项目介绍：springBoot 搭建的项目,持久层用的mybatis,二级缓存用的redis,用aop处理异常,加入swagger 依赖做调试用。这个项目是自己构建框架练手的，所以有不完善的地方（比如交互验证规则，分页查询等）。 

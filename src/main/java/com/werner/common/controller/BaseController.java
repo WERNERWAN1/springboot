@@ -1,0 +1,1 @@
+package com.werner.common.controller;import lombok.Data;@Datapublic class BaseController {    protected String oss;}

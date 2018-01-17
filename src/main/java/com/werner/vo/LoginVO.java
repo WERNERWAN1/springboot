@@ -1,0 +1,1 @@
+package com.werner.vo;import lombok.Data;import java.io.Serializable;@Datapublic class LoginVO implements Serializable{    private static final long serialVersionUID = 1984364324638980581L;    private String token;}

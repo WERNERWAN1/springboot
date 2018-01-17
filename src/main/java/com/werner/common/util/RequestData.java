@@ -1,0 +1,1 @@
+package com.werner.common.util;import lombok.Data;@Datapublic class RequestData<T> {    private String token;    private String phone;    private T data;}

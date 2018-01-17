@@ -1,0 +1,1 @@
+package com.werner.vo;import lombok.Data;import java.io.Serializable;@Datapublic class UserVO implements Serializable {    private static final long serialVersionUID = 1823686969237606077L;    private String mobile;    private String name;    private String phone;}

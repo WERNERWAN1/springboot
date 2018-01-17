@@ -1,0 +1,20 @@
+*.class
+
+# Package Files #
+*.ear
+bin
+build
+disti
+out
+target
+generator
+.checkstyle
+.project
+.clover
+.settings
+.classpath
+.idea
+.svn
+*.iml
+*.ipr
+*.iws

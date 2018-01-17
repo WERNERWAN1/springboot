@@ -1,0 +1,1 @@
+package com.werner.common.mapper;public interface BaseMapper<T> {    int deleteByPrimaryKey(Integer primaryKey);    int insert(T entity);    int insertSelective(T entity);    T selectByPrimaryKey(Integer primaryKey);    int updateByPrimaryKeySelective(T entity);}

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.werner.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.werner.entity.User">
+        <id column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="dpid" property="dpid" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="id_number" property="idNumber" jdbcType="VARCHAR"/>
+        <result column="add_time" property="addTime" jdbcType="TIMESTAMP"/>
+        <result column="password_md5" property="passwordMd5" jdbcType="VARCHAR"/>
+        <result column="password_sha2" property="passwordSha2" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="last_login" property="lastLogin" jdbcType="TIMESTAMP"/>
+        <result column="last_login_ip" property="lastLoginIp" jdbcType="VARCHAR"/>
+        <result column="login_token_expire_time" property="loginTokenExpireTime" jdbcType="TIMESTAMP"/>
+        <result column="login_token" property="loginToken" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    mobile, dpid, name, id_number, add_time, password_md5, password_sha2, status, last_login, 
+    last_login_ip, login_token_expire_time, login_token
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select 'false' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from t_user
+        where mobile = #{mobile,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_user
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.werner.entity.User">
+    insert into t_user (mobile, dpid, name, 
+      id_number, add_time, password_md5, 
+      password_sha2, status, last_login, 
+      last_login_ip, login_token_expire_time, login_token
+      )
+    values (#{mobile,jdbcType=VARCHAR}, #{dpid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{idNumber,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, #{passwordMd5,jdbcType=VARCHAR}, 
+      #{passwordSha2,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{loginTokenExpireTime,jdbcType=TIMESTAMP}, #{loginToken,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.werner.entity.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="dpid != null">
+                dpid,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="idNumber != null">
+                id_number,
+            </if>
+            <if test="addTime != null">
+                add_time,
+            </if>
+            <if test="passwordMd5 != null">
+                password_md5,
+            </if>
+            <if test="passwordSha2 != null">
+                password_sha2,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="lastLogin != null">
+                last_login,
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip,
+            </if>
+            <if test="loginTokenExpireTime != null">
+                login_token_expire_time,
+            </if>
+            <if test="loginToken != null">
+                login_token,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="dpid != null">
+                #{dpid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="idNumber != null">
+                #{idNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="addTime != null">
+                #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="passwordMd5 != null">
+                #{passwordMd5,jdbcType=VARCHAR},
+            </if>
+            <if test="passwordSha2 != null">
+                #{passwordSha2,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="lastLogin != null">
+                #{lastLogin,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLoginIp != null">
+                #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="loginTokenExpireTime != null">
+                #{loginTokenExpireTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginToken != null">
+                #{loginToken,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.werner.entity.User">
+        update t_user
+        <set>
+            <if test="dpid != null">
+                dpid = #{dpid,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="idNumber != null">
+                id_number = #{idNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="passwordMd5 != null">
+                password_md5 = #{passwordMd5,jdbcType=VARCHAR},
+            </if>
+            <if test="passwordSha2 != null">
+                password_sha2 = #{passwordSha2,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="lastLogin != null">
+                last_login = #{lastLogin,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLoginIp != null">
+                last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="loginTokenExpireTime != null">
+                login_token_expire_time = #{loginTokenExpireTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginToken != null">
+                login_token = #{loginToken,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where mobile = #{mobile,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.werner.entity.User">
+    update t_user
+    set dpid = #{dpid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      password_md5 = #{passwordMd5,jdbcType=VARCHAR},
+      password_sha2 = #{passwordSha2,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      last_login = #{lastLogin,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      login_token_expire_time = #{loginTokenExpireTime,jdbcType=TIMESTAMP},
+      login_token = #{loginToken,jdbcType=VARCHAR}
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </update>
+
+    <select id="selectUserByLogin" parameterType="com.werner.entity.User" resultMap="BaseResultMap">
+    select *
+    from t_user
+    where mobile = #{mobile,jdbcType=VARCHAR} AND `name` = #{name,jdbcType=VARCHAR}
+  </select>
+</mapper>

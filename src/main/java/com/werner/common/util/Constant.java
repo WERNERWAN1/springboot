@@ -1,0 +1,1 @@
+package com.werner.common.util;public class Constant {    //用户登录后生成的token 格式为：“USER_TOKEN：+phone+uuid”    public static String userToken="USER_TOKEN:";    public static Long usuallyTime=60L;}
